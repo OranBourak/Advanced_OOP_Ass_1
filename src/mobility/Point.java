@@ -27,12 +27,11 @@ public class Point {
         this.setY(y);
 
     }
-    Point(int x){
-        this(x,0);
-    }
+
     Point(){
         this(0,0);
     }
+
     boolean setX(int x){
         if (min_x <= x && max_x >= x) {
             this.x = x;
@@ -48,6 +47,10 @@ public class Point {
         return false; // not in range
     }
 
+
+    int getX(){return this.x;}
+
+    int getY(){return this.y;}
 
 
 
