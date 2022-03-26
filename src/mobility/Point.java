@@ -22,24 +22,24 @@ public class Point {
      * @param x - x coordinate
      * @param y - y coordinate
      */
-    Point(int x,int y){
+    public Point(int x,int y){
         this.setX(x);
         this.setY(y);
 
     }
 
-    Point(){
+    public Point(){
         this(0,0);
     }
 
-    boolean setX(int x){
+    public boolean setX(int x){
         if (min_x <= x && max_x >= x) {
             this.x = x;
             return true;
         }
         return false; // not in range
     }
-    boolean setY(int y){
+    public boolean setY(int y){
         if (min_y <= y && max_y >= y) {
             this.y = y;
             return true;
@@ -47,10 +47,13 @@ public class Point {
         return false; // not in range
     }
 
+//    public static boolean checkBoundries(int x, int y) {
+//        if
+//    }
 
-    int getX(){return this.x;}
+    public int getX(){return this.x;}
 
-    int getY(){return this.y;}
+    public int getY(){return this.y;}
 
 
 

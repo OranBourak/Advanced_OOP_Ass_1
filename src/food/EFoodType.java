@@ -9,6 +9,9 @@ public enum EFoodType {
     /*EFoodType - Types of existing foods.  */
     MEAT, // All animals except lions
     NOTFOOD, // lions
-    VEGETABLE //All vegetables.
+    VEGETABLE; //All vegetables.
 
+//    public boolean equals(EFoodType other){
+//        return this == other;
+//    } Ask about it
 }
