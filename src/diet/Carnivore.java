@@ -1,5 +1,6 @@
 package diet;
 
+import animals.Animal;
 import food.EFoodType;
 import food.IEdible;
 
@@ -9,12 +10,30 @@ import food.IEdible;
  * @author Tomer Burman, Oran Bourak
  *
  */
-public abstract class Carnivore implements IDiet{
+public class Carnivore implements IDiet{
 
+    /**
+     *
+     * @param food food type
+     * @return true if the food is meat, else false.
+     */
+    @Override
+    public boolean canEat(EFoodType food) {
+        return food == EFoodType.MEAT; // if the food is meat returns true, else false.
+    }
 
+    /**
+     * eat
+     * @param animal Animal checked.
+     * @param food food type
+     * @return returns the weight the animal will gain after a meal.
+     * if the animal can't eat the food, returns 0.
+     */
+    @Override
+    public double eat(Animal animal, IEdible food) {
+        if (animal.canEat())
+            return animal.getWeight()*0.1;
+        return 0;
 
-//    boolean canEat(EFoodType food);
-//    double eat(Animal animal, IEdible food){
-//        //eatting meat causes an increase of 10% of body weight.
-//    }
+    }
 }
