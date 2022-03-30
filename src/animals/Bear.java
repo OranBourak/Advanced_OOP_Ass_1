@@ -4,6 +4,7 @@ import diet.Carnivore;
 import diet.Omnivore;
 import mobility.Point;
 import privateutil.Roaring_animals;
+import utilities.MessageUtility;
 
 import java.util.Arrays;
 
@@ -13,23 +14,43 @@ import static utilities.MessageUtility.logSetter;
 public class Bear extends Roaring_animals {
 
     private final static double defaultWeight = 308.2;
+    private final static String defaultFurColor = "GRAY";
 
     private String furColor;
     private final String[] colors_array = {"BLACK","WHITE","GRAY"}; // color choices.
 
-    public Bear(String name,Point location){
+    /**
+     * Bear Ctor
+     * @param name - bear name
+     * @param location - bear location
+     * @param furColor - bear color
+     */
+    public Bear(String name,Point location, String furColor){
         super(name,location);
         this.setWeight(defaultWeight);
-
         this.setDiet(new Omnivore()); // meat eater
+        if(!setFurColor(furColor))
+            setFurColor(defaultFurColor);
+        MessageUtility.logConstractor("Bear", this.getName());
+
     }
+
+    /**
+     * Bear Ctor that receives name and location.
+     * @param name - bear name
+     * @param location - bear location
+     */
+    public Bear(String name, Point location) {
+        this(name, location,defaultFurColor);
+    }
+
     /**
      * Ctor that receives only String for name initiates base first.
-     *
+     *set Fur color to default.
      * @param name - bear name
      */
     public Bear(String name) {
-        this(name, new Point(100,5));
+        this(name, new Point(100,5),defaultFurColor);
     }
 
     /**

@@ -3,6 +3,7 @@ package animals;
 import diet.Herbivore;
 import mobility.Point;
 import privateutil.Chewing_animals;
+import utilities.MessageUtility;
 
 import static utilities.MessageUtility.logSetter;
 
@@ -23,6 +24,7 @@ public class Elephant extends Chewing_animals {
         if (!setTrunkLength(trunkLength))
             setTrunkLength(trunkDefaultLength);
         this.setDiet(new Herbivore());
+        MessageUtility.logConstractor("Elephant", this.getName());
     }
 
     /**
