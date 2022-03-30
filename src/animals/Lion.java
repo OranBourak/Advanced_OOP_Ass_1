@@ -53,7 +53,7 @@ public class Lion extends Roaring_animals {
                 addScarCount(); // raising scarCount by
             return true;
 
-        }
+             }
         return false;
     }
 
