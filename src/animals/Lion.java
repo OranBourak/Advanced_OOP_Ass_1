@@ -11,7 +11,7 @@ public class Lion extends Roaring_animals {
     private int scarCount ;// how many scars lion has
 
     /**
-     * constructor that recieves name and starting location.
+     * constructor that receives name and starting location.
      * @param name
      * @param location
      */

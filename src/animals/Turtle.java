@@ -69,6 +69,10 @@ public class Turtle extends Chewing_animals {
         return Age;
     }
 
+    public String toString(){
+        return super.toString();
+    }
+
     @Override
     public void chew() {
     //TODO

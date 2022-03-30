@@ -5,8 +5,6 @@ import food.IEdible;
 import mobility.*;
 import utilities.MessageUtility;
 
-import javax.print.attribute.standard.DateTimeAtCompleted;
-
 /**
  * Animal - abstarct class that defines general characteristics for animals.
  * Extends Mobile
@@ -157,8 +155,19 @@ public abstract class Animal extends Mobile implements IEdible{
         return this.getName() + ", total distance: " + this.getTotalDistance() + ", weight: " + this.getWeight()+ "," +this.getClass().getSimpleName();
     }
 
-
-
+    /**
+     * Move method
+     * use Mobile move method , update the animal weight with the following formula:
+     * Weight- (distance*weight*0.00025).
+     * @param other received Point to travel to
+     * @return
+     */
+    @Override
+    public double move(Point other){
+        double distance = super.move(other) ;
+        this.setWeight(this.getWeight()-(distance*this.getWeight()*0.00025));
+        return distance;
+    }
 
 
 
