@@ -58,8 +58,19 @@ public class Turtle extends Chewing_animals {
         return false;
     }
 
+    /**
+     * Get Age method
+     * @return
+     */
+    public int getAge() {
+        return Age;
+    }
+
     @Override
     public void chew() {
     //TODO
     }
+
+
+
 }
