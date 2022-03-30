@@ -55,7 +55,10 @@ public abstract class Animal extends Mobile implements IEdible{
     }
 
 
-
+    /**
+     * getWeight - returns weight of the animal, uses MessageUtility.
+     * @return double type - weight.
+     */
     public double getWeight(){
         MessageUtility.logGetter(this.getClass().getSimpleName(), "getWeight", this.weight);
         return this.weight;}
@@ -80,7 +83,10 @@ public abstract class Animal extends Mobile implements IEdible{
     }
 
 
-
+    /**
+     * getName - uses MessageUtility.
+     * @return String type - name.
+     */
     public String getName(){
         MessageUtility.logGetter(this.getClass().getSimpleName(), "getName", this.name);
         return this.name;
@@ -116,6 +122,11 @@ public abstract class Animal extends Mobile implements IEdible{
         return true;
     }
 
+
+    /**
+     * getDiet - returns diet
+     * @return IDiet
+     */
     public IDiet getDiet(){
         return diet;
     }
@@ -136,6 +147,12 @@ public abstract class Animal extends Mobile implements IEdible{
         return false;
     }
 
+    /**toString - prints in the form of :
+     *
+     * @return String in the form of :
+     *  e.g : "Shimon, total distance : 104.3, weight : 470, Lion"
+     */
+    @Override
     public String toString(){
         return this.getName() + ", total distance: " + this.getTotalDistance() + ", weight: " + this.getWeight()+ "," +this.getClass().getSimpleName();
     }

@@ -1,4 +1,5 @@
 package animals;
+import diet.Herbivore;
 import mobility.*;
 import privateutil.Chewing_animals;
 import utilities.MessageUtility;
@@ -24,6 +25,7 @@ public class Giraffe extends Chewing_animals {
         this.setWeight(defaultWeight);
         if(!this.setNeckLength(length))
             this.setNeckLength(defaultLength);
+        this.setDiet(new Herbivore());
         MessageUtility.logConstractor("Giraffe", this.getName());
     }
 
@@ -43,6 +45,11 @@ public class Giraffe extends Chewing_animals {
     public Giraffe(String name) {
         this(name, new Point(50, 0), defaultLength);
     }
+
+    /**
+     * setDiet - setting diet to herbivore.
+     * @return boolean, true if success
+     */
 
     /**
      * setNeckLength - sets neckLength to length received if it's in bounds. (1 to 2.5 meters).

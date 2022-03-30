@@ -28,16 +28,28 @@ public class Point {
 
     }
 
+    /**
+     * default ctor that sets the point to (0,0).
+     */
     public Point(){
         this(0,0);
     }
 
+    /**
+     * setX - recieves int param and assigns it to X coordinate
+     * @param x
+     * @return boolean
+     */
     public boolean setX(int x) {
         this.x = x;
         return true;
     }
 
-
+    /**
+     * setY - receives int param and assigns it to Y coordinate.
+     * @param y
+     * @return boolean
+     */
     public boolean setY(int y){
             this.y = y;
             return true;
@@ -53,8 +65,17 @@ public class Point {
         return (pointToCheck.getX() >= min_x || pointToCheck.getX() <= max_x || pointToCheck.getY() >= min_y || pointToCheck.getY() <= max_y);
     }
 
+
+    /**
+     * getX - returns value of X coordinate
+     * @return int
+     */
     public int getX(){return this.x;}
 
+    /**
+     * getY - returns value of Y coordinate
+     * @return int
+     */
     public int getY(){return this.y;}
 
 

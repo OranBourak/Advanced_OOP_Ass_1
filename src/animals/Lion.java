@@ -7,7 +7,7 @@ import privateutil.Roaring_animals;
 import utilities.MessageUtility;
 
 public class Lion extends Roaring_animals {
-
+    private final double default_weight = 408.2;
     private int scarCount ;// how many scars lion has
 
     /**
@@ -17,7 +17,7 @@ public class Lion extends Roaring_animals {
      */
     public Lion(String name,Point location){
         super(name,location);
-        super.setWeight(408.2);
+        super.setWeight(default_weight);
         this.setDiet(new Carnivore()); // meat eater
     }
 
@@ -26,6 +26,7 @@ public class Lion extends Roaring_animals {
      * @param name
      */
     public Lion(String name){
+
         this(name,new Point(20,0));
     }
 
@@ -57,12 +58,21 @@ public class Lion extends Roaring_animals {
         return false;
     }
 
+    /**
+     * getScarCount - returns how many scars the lion has
+     * @return int
+     */
     public int getScarCount(){return scarCount;}
 
 
     public void roar(){
     //TODO
     }
+
+    /**
+     * toString - uses Animal class toString.
+     * @return
+     */
 
     public String toString(){
         return super.toString();
