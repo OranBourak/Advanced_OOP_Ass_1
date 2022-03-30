@@ -38,7 +38,7 @@ public abstract class Mobile implements ILocatable{
      * increases total distance after movement.
      * @param distance double type - distance traveled. >0.
      */
-    void addTotalDistance(double distance){
+    public void addTotalDistance(double distance){
         this.setTotalDistance(this.getTotalDistance() + distance); // adds given distance to old distance.
     }
 
@@ -97,10 +97,14 @@ public abstract class Mobile implements ILocatable{
      * @return distance traveled.
      */
     public double move(Point other){
-        double distance = this.calcDistance(other); // returns distance between 2 Points.
-        this.setLocation(other); //setting location of our obj to other obj location.
-        this.addTotalDistance(distance); //updating total distance traveled.
-        return distance;
+        if(Point.checkBoundries(other)) {
+            double distance = this.calcDistance(other); // returns distance between 2 Points.
+            this.setLocation(other); //setting location of our obj to other obj location.
+            this.addTotalDistance(distance); //updating total distance traveled.
+            return distance;
+        }
+        return 0;
+
     }
 
 
