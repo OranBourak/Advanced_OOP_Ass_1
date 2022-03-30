@@ -64,6 +64,10 @@ public class Lion extends Roaring_animals {
     //TODO
     }
 
+    public String toString(){
+        return this.getName() + ", total distance: " + this.getTotalDistance() + ", weight: " + this.getWeight()+ "," +this.getClass().getSimpleName();
+    }
+
     /**
      * getFoodType
      * @return EFoodType
