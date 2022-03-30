@@ -1,9 +1,12 @@
 package animals;
-import diet.IDiet;
+import diet.Carnivore;
 import food.*;
 import mobility.Point;
 import java.util.Random;
-public class Lion extends Animal implements IDiet{
+import privateutil.Roaring_animals;
+import utilities.MessageUtility;
+
+public class Lion extends Roaring_animals {
 
     private int scarCount ;// how many scars lion has
 
@@ -15,6 +18,7 @@ public class Lion extends Animal implements IDiet{
     public Lion(String name,Point location){
         super(name,location);
         super.setWeight(408.2);
+        this.setDiet(new Carnivore()); // meat eater
     }
 
     /**
@@ -25,20 +29,28 @@ public class Lion extends Animal implements IDiet{
         this(name,new Point(20,0));
     }
 
-
-    public boolean setScarCount(int count){
-        scarCount += count;
+    /**
+     * adds scarCount by 1.
+     * @return true.
+     */
+    public boolean addScarCount(){
+        scarCount += 1;
         return true;
     }
 
-
+    /**
+     * eat - uses Animal class eat, if food is edible, there's a 50% chance to
+     * get a scar.
+     * @param food
+     * @return returns true if edible, false otherwise.
+     */
+    @Override
     public boolean eat(IEdible food){
-        if (canEat(food.getFoodType())) {
+            if(super.eat(food)){
             Random rand = new Random();
             int rand_int =  rand.nextInt(2); //generating either 0/1
             if(rand_int == 1)
-                setScarCount(rand_int); // raising scarCount by 1
-            setWeight(getWeight()*1.1); //raising weight by 10%.
+                addScarCount(); // raising scarCount by
             return true;
 
         }
@@ -48,14 +60,16 @@ public class Lion extends Animal implements IDiet{
     public int getScarCount(){return scarCount;}
 
 
-    public void roar(){}
-
-
-    public boolean canEat(EFoodType food){
-        return food == EFoodType.MEAT;
+    public void roar(){
+    //TODO
     }
 
+    /**
+     * getFoodType
+     * @return EFoodType
+     */
     public EFoodType getFoodType(){
+        MessageUtility.logGetter(this.getClass().getSimpleName(), "getFoodType", EFoodType.NOTFOOD);
         return EFoodType.NOTFOOD;
     }
 

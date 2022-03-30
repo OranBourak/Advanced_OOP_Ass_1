@@ -32,24 +32,26 @@ public class Point {
         this(0,0);
     }
 
-    public boolean setX(int x){
-        if (min_x <= x && max_x >= x) {
-            this.x = x;
-            return true;
-        }
-        return false; // not in range
-    }
-    public boolean setY(int y){
-        if (min_y <= y && max_y >= y) {
-            this.y = y;
-            return true;
-        }
-        return false; // not in range
+    public boolean setX(int x) {
+        this.x = x;
+        return true;
     }
 
-//    public static boolean checkBoundries(int x, int y) {
-//        if
-//    }
+
+    public boolean setY(int y){
+            this.y = y;
+            return true;
+    }
+
+    /**
+     * checkBoundries - checks if the coordinates are valid
+     * @param x x coordinate
+     * @param y y coordinate
+     * @return true if the point is in range, false otherwise.
+     */
+    public static boolean checkBoundries(Point pointToCheck) {
+        return (pointToCheck.getX() >= min_x || pointToCheck.getX() <= max_x || pointToCheck.getY() >= min_y || pointToCheck.getY() <= max_y);
+    }
 
     public int getX(){return this.x;}
 

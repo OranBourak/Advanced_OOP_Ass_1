@@ -28,7 +28,7 @@ public abstract class Mobile implements ILocatable{
 
     /**
      * Mobile default constructor
-     *
+     * Point default constructor is invoked and a point is created at (0,0).
      */
     public Mobile(){
         this(new Point());
@@ -36,7 +36,7 @@ public abstract class Mobile implements ILocatable{
 
     /**
      * increases total distance after movement.
-     * @param distance double type - distance traveled.
+     * @param distance double type - distance traveled. >0.
      */
     void addTotalDistance(double distance){
         this.setTotalDistance(this.getTotalDistance() + distance); // adds given distance to old distance.
@@ -47,6 +47,7 @@ public abstract class Mobile implements ILocatable{
      * @param location Point given.
      * @return true once location is set.
      */
+    @Override
     public boolean setLocation(Point location){
         this.location = location;
         return true;
@@ -56,6 +57,7 @@ public abstract class Mobile implements ILocatable{
      * returns location of the object that invoked method.
      * @return Point - location.
      */
+    @Override
     public Point getLocation(){return location;}
 
     /**

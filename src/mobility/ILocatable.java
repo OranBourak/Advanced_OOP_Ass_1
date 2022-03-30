@@ -14,5 +14,5 @@ public interface ILocatable {
      *
      * @return True if Point is set and false otherwise.
      */
-    public boolean setLocation(Point p);
+    boolean setLocation(Point p);
 }
