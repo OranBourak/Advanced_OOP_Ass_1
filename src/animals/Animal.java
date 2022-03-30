@@ -136,6 +136,10 @@ public abstract class Animal extends Mobile implements IEdible{
         return false;
     }
 
+    public String toString(){
+        return this.getName() + ", total distance: " + this.getTotalDistance() + ", weight: " + this.getWeight()+ "," +this.getClass().getSimpleName();
+    }
+
 
 
 

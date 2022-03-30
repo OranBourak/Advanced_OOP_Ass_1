@@ -55,7 +55,7 @@ public class Bear extends Roaring_animals {
     }
 
     public String toString(){
-        return this.getName() + ", total distance: " + this.getTotalDistance() + ", weight: " + this.getWeight()+ "," +this.getClass().getSimpleName();
+        return super.toString();
     }
 
     @Override

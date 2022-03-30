@@ -58,7 +58,7 @@ public class Elephant extends Chewing_animals {
     }
 
     public String toString(){
-        return this.getName() + ", total distance: " + this.getTotalDistance() + ", weight: " + this.getWeight()+ "," +this.getClass().getSimpleName();
+        return super.toString();
     }
 
     @Override
