@@ -10,7 +10,7 @@ import utilities.MessageUtility;
  */
 public class Giraffe extends Chewing_animals {
     private double neckLength; // neck length
-    private final static double neck_Length_min = 1, neck_Length_max = 2.5,defaultLength = 1.5; // neck length boundries.
+    private final static double neck_Length_min = 1, neck_Length_max = 2.5,defaultLength = 1.5, defaultWeight =450; // neck length boundries.
 
     /**
      * Giraffe ctor - initiates base class and sets weight to default(450), if neckLength
@@ -21,7 +21,7 @@ public class Giraffe extends Chewing_animals {
      */
     public Giraffe(String name,Point location,double length){
         super(name,location);
-        this.setWeight(450);
+        this.setWeight(defaultWeight);
         if(!this.setNeckLength(length))
             this.setNeckLength(defaultLength);
         MessageUtility.logConstractor("Giraffe", this.getName());
@@ -50,12 +50,12 @@ public class Giraffe extends Chewing_animals {
      * @return true if in boundries, false otherwise.
      */
     public boolean setNeckLength(double length){
-        if(length >= neck_Length_min || length <= neck_Length_max){
-            MessageUtility.logSetter(this.getClass().getSimpleName(), "setNeckLength", length, true);
+        if(length >= neck_Length_min && length <= neck_Length_max){
+            MessageUtility.logSetter(this.getName(), "setNeckLength", length, true);
             this.neckLength = length;
             return true;
         }
-        MessageUtility.logSetter(this.getClass().getSimpleName(), "setNeckLength", length, false);
+        MessageUtility.logSetter(this.getName(), "setNeckLength", length, false);
         return false;
     }
 
@@ -64,7 +64,7 @@ public class Giraffe extends Chewing_animals {
      * @return neckLength of giraffe.
      */
     public double getNeckLength(){
-        MessageUtility.logGetter(this.getClass().getSimpleName(), "getNeckLength", this.neckLength);
+        MessageUtility.logGetter(this.getName(), "getNeckLength", this.neckLength);
         return neckLength;
     }
 

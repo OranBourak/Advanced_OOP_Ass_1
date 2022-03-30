@@ -6,7 +6,6 @@ import java.util.Random;
 import animals.Animal;
 import animals.Bear;
 import animals.Elephant;
-import animals.Giraffe;
 import animals.Lion;
 import animals.Turtle;
 import food.IEdible;

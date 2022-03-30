@@ -1,5 +1,6 @@
 package animals;
 
+import diet.Herbivore;
 import mobility.Point;
 import privateutil.Chewing_animals;
 
@@ -21,6 +22,7 @@ public class Elephant extends Chewing_animals {
         this.setWeight(500);
         if (!setTrunkLength(trunkLength))
             setTrunkLength(trunkDefaultLength);
+        this.setDiet(new Herbivore());
     }
 
     /**

@@ -1,6 +1,7 @@
 package animals;
 
 import diet.Carnivore;
+import diet.Omnivore;
 import mobility.Point;
 import privateutil.Roaring_animals;
 
@@ -11,14 +12,16 @@ import static utilities.MessageUtility.logSetter;
 
 public class Bear extends Roaring_animals {
 
+    private final static double defaultWeight = 308.2;
+
     private String furColor;
     private final String[] colors_array = {"BLACK","WHITE","GRAY"}; // color choices.
 
     public Bear(String name,Point location){
         super(name,location);
-        this.setWeight(308.2);
+        this.setWeight(defaultWeight);
 
-        this.setDiet(new Carnivore()); // meat eater
+        this.setDiet(new Omnivore()); // meat eater
     }
     /**
      * Ctor that receives only String for name initiates base first.
