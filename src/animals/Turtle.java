@@ -4,6 +4,8 @@ package animals;
 import diet.Herbivore;
 import mobility.Point;
 import privateutil.Chewing_animals;
+
+import static utilities.MessageUtility.logConstractor;
 import static utilities.MessageUtility.logSetter;
 
 public class Turtle extends Chewing_animals {
@@ -22,6 +24,7 @@ public class Turtle extends Chewing_animals {
         if(!this.setAge(Age))
             setAge(defaultAge);
         this.setDiet(new Herbivore());
+        logConstractor("Turtle", this.getName());
 
     }
 
