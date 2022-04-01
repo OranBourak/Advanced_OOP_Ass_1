@@ -22,24 +22,29 @@ public class ZooActions {
         Scanner sc = new Scanner(System.in);
         System.out.println("How many animals would you like to create ? ");
         int num_of_Animals = sc.nextInt(); // taking size of animal array.
-//        while (num_of_Animals < 3) { // Array size bigger than 3.
-//            System.out.println("Invalid choice. Must be higher than3. \nHow many animals would you like to create ? ");
-//            num_of_Animals = sc.nextInt(); // taking size of animal array.
-//        }
+        while (num_of_Animals < 3) { // Array size bigger than 3.
+            System.out.println("Invalid choice. Must be higher than3. \nHow many animals would you like to create ? ");
+            num_of_Animals = sc.nextInt(); // taking size of animal array.
+        }
         Animal[] animals = animalBuilder(num_of_Animals); // creating array with the specified size.
+        //"Simba is in (X,Y), enter X and Y coordinates to move to"
+        for(Animal animal : animals){ // moving
+            ZooActions.move(animal,new Point());
+        }
 
-        Plant p = new Cabbage();
-        System.out.println("\nFeeding 1\n");
-        ZooActions.eat(animals[0],animals[1]);
-        System.out.println("\nFeeding 2\n");
-        ZooActions.eat(animals[1],animals[0]);
-        System.out.println("\nFeeding 3\n");
-        ZooActions.eat(animals[2],p);
-        System.out.println("\nFeeding 4\n");
-        ZooActions.eat(animals[1],p);
-        System.out.println("\nFeeding 5\n");
-        ZooActions.eat(animals[1],p);
-        sc.close(); // closing scanner.
+
+//        Plant p = new Cabbage();
+//        sc.close(); // closing scanner.
+//        System.out.println("\nFeeding 1\n");
+//        ZooActions.eat(animals[0],animals[1]);
+//        System.out.println("\nFeeding 2\n");
+//        ZooActions.eat(animals[1],animals[0]);
+//        System.out.println("\nFeeding 3\n");
+//        ZooActions.eat(animals[2],p);
+//        System.out.println("\nFeeding 4\n");
+//        ZooActions.eat(animals[1],p);
+//        System.out.println("\nFeeding 5\n");
+//        ZooActions.eat(animals[1],p);
 
 
 
@@ -72,12 +77,21 @@ public class ZooActions {
      * @return returns true if movement was possible, false otherwise.
      */
     public static boolean move(Object animal, Point point) {
-        if (animal instanceof Animal) {
-            MessageUtility.logBooleanFunction(((Animal) animal).getName(), "move", point, true);
-            return ((Animal) animal).move(point) != 0; // if animal is able to move returns true, else false .
+        if (animal instanceof Animal temp_animal) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println(temp_animal.getName() + " is in " + temp_animal.getLocation() + ", Enter X and Y coordinats to move to");
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            point.setX(x);
+            point.setY(y);
+            boolean isSuccess = false;
+            if(((Animal) animal).move(point) != 0)
+                isSuccess = true;
+            MessageUtility.logBooleanFunction(((Animal) animal).getName(), "move", point,isSuccess );
+            return isSuccess; // Can not move to received point.
         }
 
-        return false;
+        return false; // not an animal
     }
 
 
@@ -160,7 +174,6 @@ public class ZooActions {
             }
 
         }
-        sc.close();
         return animal;
     }
 }
