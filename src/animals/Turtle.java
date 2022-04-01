@@ -4,6 +4,7 @@ package animals;
 import diet.Herbivore;
 import mobility.Point;
 import privateutil.Chewing_animals;
+import utilities.MessageUtility;
 
 import static utilities.MessageUtility.logConstractor;
 import static utilities.MessageUtility.logSetter;
@@ -75,7 +76,7 @@ public class Turtle extends Chewing_animals {
 
     @Override
     public void chew() {
-    //TODO
+        MessageUtility.logSound(this.getName(),"Retracts its head in then eats quietly");
     }
 
 

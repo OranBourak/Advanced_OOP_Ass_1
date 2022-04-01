@@ -139,10 +139,13 @@ public abstract class Animal extends Mobile implements IEdible{
     public boolean eat(IEdible food){
         double weight_gained = diet.eat(this,food);
         if(weight_gained != 0){
+            MessageUtility.logBooleanFunction(this.getName(), "eat", weight, true);
+
             this.setWeight(this.getWeight()+weight_gained);
             this.makeSound();
             return true;
         }
+        MessageUtility.logBooleanFunction(this.getName(), "eat", weight, false);
         return false;
     }
 
