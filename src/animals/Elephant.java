@@ -24,7 +24,7 @@ public class Elephant extends Chewing_animals {
         if (!setTrunkLength(trunkLength))
             setTrunkLength(trunkDefaultLength);
         this.setDiet(new Herbivore());
-        MessageUtility.logConstractor("Elephant", this.getName());
+        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
     }
 
     /**
@@ -67,6 +67,6 @@ public class Elephant extends Chewing_animals {
 
     @Override
     public void chew() {
-       //TODO
+       MessageUtility.logSound(this.getName(),"Trumpets with joy while flapping its ears, then chews");
     }
 }

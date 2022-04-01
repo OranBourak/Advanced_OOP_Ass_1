@@ -19,6 +19,7 @@ public class Lion extends Roaring_animals {
         super(name,location);
         super.setWeight(default_weight);
         this.setDiet(new Carnivore()); // meat eater
+        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
     }
 
     /**
@@ -66,7 +67,7 @@ public class Lion extends Roaring_animals {
 
 
     public void roar(){
-    //TODO
+        MessageUtility.logSound(this.getName(),"Roars, then stretches and shakes it mane");
     }
 
     /**

@@ -26,7 +26,7 @@ public class Giraffe extends Chewing_animals {
         if(!this.setNeckLength(length))
             this.setNeckLength(defaultLength);
         this.setDiet(new Herbivore());
-        MessageUtility.logConstractor("Giraffe", this.getName());
+        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
     }
 
     /**
@@ -87,7 +87,7 @@ public class Giraffe extends Chewing_animals {
      * Giraffe chew .
      */
     public void chew() {
-        //TODO
+        MessageUtility.logSound(this.getName(), "Bleats and Stomps its legs, then chews");
     }
 }
 

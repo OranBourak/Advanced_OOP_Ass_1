@@ -61,8 +61,8 @@ public class Point {
      * @param y y coordinate
      * @return true if the point is in range, false otherwise.
      */
-    public static boolean checkBoundries(Point pointToCheck) {
-        return (pointToCheck.getX() >= min_x || pointToCheck.getX() <= max_x || pointToCheck.getY() >= min_y || pointToCheck.getY() <= max_y);
+    public static boolean checkBoundaries(Point pointToCheck) {
+        return (pointToCheck.getX() >= min_x && pointToCheck.getX() <= max_x && pointToCheck.getY() >= min_y && pointToCheck.getY() <= max_y);
     }
 
 

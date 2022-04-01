@@ -74,7 +74,6 @@ public class MessageUtility {
 		}
 
 	}
-
 	public static void logSound(String name, String message) {
 		String str = "[!]" + name + ":  \t" + message;
 		System.out.println(str);

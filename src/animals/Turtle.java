@@ -24,7 +24,7 @@ public class Turtle extends Chewing_animals {
         if(!this.setAge(Age))
             setAge(defaultAge);
         this.setDiet(new Herbivore());
-        logConstractor("Turtle", this.getName());
+        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
 
     }
 

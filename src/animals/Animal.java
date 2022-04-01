@@ -1,4 +1,5 @@
 package animals;
+import diet.Carnivore;
 import diet.IDiet;
 import food.EFoodType;
 import food.IEdible;
@@ -32,7 +33,7 @@ public abstract class Animal extends Mobile implements IEdible{
     public Animal(String name,Point location){
         super(location); // base class ctor
         this.setName(name);
-        MessageUtility.logConstractor(this.getClass().getSimpleName(), this.getName());
+        MessageUtility.logConstractor("Animal",this.getName());
     }
 
 
@@ -42,13 +43,13 @@ public abstract class Animal extends Mobile implements IEdible{
      * @param weight
      * @return true if weight is higher than zero
      */
-    public boolean setWeight (double weight){
+    protected boolean setWeight (double weight){
         if(weight > 0){
-            MessageUtility.logSetter(this.getClass().getSimpleName(), "setWeight", name,true);
+            MessageUtility.logSetter(this.getClass().getSimpleName(), "setWeight", weight,true);
             this.weight = weight;
             return true;
         }
-        MessageUtility.logSetter(this.getClass().getSimpleName(), "setWeight", name,false);
+        MessageUtility.logSetter(this.getClass().getSimpleName(), "setWeight", weight,false);
         return false;
     }
 
@@ -70,7 +71,7 @@ public abstract class Animal extends Mobile implements IEdible{
      * @param name - name to change to.
      * @return true if changed, else false.
      */
-    public boolean setName(String name){
+    private boolean setName(String name){
         if (name.compareTo("") != 0){ //if name recieved is not empty it changes.
             MessageUtility.logSetter(this.getClass().getSimpleName(), "setName", name,true);
             this.name = name;
@@ -86,7 +87,7 @@ public abstract class Animal extends Mobile implements IEdible{
      * @return String type - name.
      */
     public String getName(){
-        MessageUtility.logGetter(this.getClass().getSimpleName(), "getName", this.name);
+        MessageUtility.logGetter(this.name, "getName", this.name);
         return this.name;
     }
 
@@ -104,7 +105,7 @@ public abstract class Animal extends Mobile implements IEdible{
       */
     @Override
     public EFoodType getFoodType(){
-        MessageUtility.logGetter(this.getClass().getSimpleName(), "getFoodType", EFoodType.MEAT);
+        MessageUtility.logGetter(this.getName(), "getFoodType", EFoodType.MEAT);
         return EFoodType.MEAT;
     }
 
@@ -115,7 +116,7 @@ public abstract class Animal extends Mobile implements IEdible{
      * @return true.
      */
     public boolean setDiet(IDiet diet){
-        MessageUtility.logSetter(this.getClass().getSimpleName(), "setDiet", name,true);
+        MessageUtility.logSetter(this.getName(), "setDiet", diet.getClass().getSimpleName(),true);
         this.diet = diet;
         return true;
     }
@@ -148,7 +149,7 @@ public abstract class Animal extends Mobile implements IEdible{
     /**toString - prints in the form of :
      *
      * @return String in the form of :
-     *  e.g : "Shimon, total distance : 104.3, weight : 470, Lion"
+     * e.g [Lion] : Shimon  NEW
      */
     @Override
     public String toString(){

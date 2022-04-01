@@ -1,5 +1,4 @@
 package mobility;
-import java.lang.Math.*;
 
 /**
  * Mobile - Abstract class that represents movement in (x,y) coordinate and implements Ilocateable interface.
@@ -98,7 +97,7 @@ public abstract class Mobile implements ILocatable{
      * @return distance traveled.
      */
     public double move(Point other){
-        if(Point.checkBoundries(other)) {
+        if(Point.checkBoundaries(other)) {
             double distance = this.calcDistance(other); // returns distance between 2 Points.
             this.setLocation(other); //setting location of our obj to other obj location.
             this.addTotalDistance(distance); //updating total distance traveled.

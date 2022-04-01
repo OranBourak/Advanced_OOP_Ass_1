@@ -31,7 +31,7 @@ public class Bear extends Roaring_animals {
         this.setDiet(new Omnivore()); // meat eater
         if(!setFurColor(furColor))
             setFurColor(defaultFurColor);
-        MessageUtility.logConstractor("Bear", this.getName());
+        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
 
     }
 
@@ -79,12 +79,12 @@ public class Bear extends Roaring_animals {
     }
 
     public String toString(){
-        return super.toString();
+        return super.toString() ;
     }
 
     @Override
     public void roar() {
-        //TODO
+        MessageUtility.logSound(this.getName(),"Stands on its hind legs, roars and scratches its belly");
     }
 
 }
