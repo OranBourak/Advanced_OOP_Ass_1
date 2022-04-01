@@ -2,6 +2,8 @@ package zoo;
 import food.*;
 import mobility.*;
 import animals.*;
+import plants.Cabbage;
+import plants.Plant;
 import utilities.*;
 import java.util.Scanner;
 
@@ -20,11 +22,23 @@ public class ZooActions {
         Scanner sc = new Scanner(System.in);
         System.out.println("How many animals would you like to create ? ");
         int num_of_Animals = sc.nextInt(); // taking size of animal array.
-        while (num_of_Animals < 3) { // Array size bigger than 3.
-            System.out.println("Invalid choice. Must be higher than3. \nHow many animals would you like to create ? ");
-            num_of_Animals = sc.nextInt(); // taking size of animal array.
-        }
+//        while (num_of_Animals < 3) { // Array size bigger than 3.
+//            System.out.println("Invalid choice. Must be higher than3. \nHow many animals would you like to create ? ");
+//            num_of_Animals = sc.nextInt(); // taking size of animal array.
+//        }
         Animal[] animals = animalBuilder(num_of_Animals); // creating array with the specified size.
+
+        Plant p = new Cabbage();
+        System.out.println("\nFeeding 1\n");
+        ZooActions.eat(animals[0],animals[1]);
+        System.out.println("\nFeeding 2\n");
+        ZooActions.eat(animals[1],animals[0]);
+        System.out.println("\nFeeding 3\n");
+        ZooActions.eat(animals[2],p);
+        System.out.println("\nFeeding 4\n");
+        ZooActions.eat(animals[1],p);
+        System.out.println("\nFeeding 5\n");
+        ZooActions.eat(animals[1],p);
         sc.close(); // closing scanner.
 
 
@@ -41,7 +55,6 @@ public class ZooActions {
      */
     public static boolean eat(Object animal, IEdible food) {
         if (animal instanceof Animal) {
-            MessageUtility.logBooleanFunction(((Animal) animal).getName(), "eat", food, true);
             return ((Animal) animal).eat(food);
 
         }

@@ -45,11 +45,11 @@ public abstract class Animal extends Mobile implements IEdible{
      */
     protected boolean setWeight (double weight){
         if(weight > 0){
-            MessageUtility.logSetter(this.getClass().getSimpleName(), "setWeight", weight,true);
+            MessageUtility.logSetter(this.getName(), "setWeight", weight,true);
             this.weight = weight;
             return true;
         }
-        MessageUtility.logSetter(this.getClass().getSimpleName(), "setWeight", weight,false);
+        MessageUtility.logSetter(this.getName(), "setWeight", weight,false);
         return false;
     }
 
@@ -59,7 +59,7 @@ public abstract class Animal extends Mobile implements IEdible{
      * @return double type - weight.
      */
     public double getWeight(){
-        MessageUtility.logGetter(this.getClass().getSimpleName(), "getWeight", this.weight);
+        MessageUtility.logGetter(this.getName(), "getWeight", this.weight);
         return this.weight;}
 
 
@@ -73,11 +73,11 @@ public abstract class Animal extends Mobile implements IEdible{
      */
     private boolean setName(String name){
         if (name.compareTo("") != 0){ //if name recieved is not empty it changes.
-            MessageUtility.logSetter(this.getClass().getSimpleName(), "setName", name,true);
             this.name = name;
+            MessageUtility.logSetter(name, "setName", name,true);
             return true;
         }
-        MessageUtility.logSetter(this.getClass().getSimpleName(), "setName", name,false);
+        MessageUtility.logSetter(this.getName(), "setName", name,false);
         return false;
     }
 
@@ -87,7 +87,7 @@ public abstract class Animal extends Mobile implements IEdible{
      * @return String type - name.
      */
     public String getName(){
-        MessageUtility.logGetter(this.name, "getName", this.name);
+//        MessageUtility.logGetter(this.name, "getName", this.name);
         return this.name;
     }
 
@@ -139,13 +139,12 @@ public abstract class Animal extends Mobile implements IEdible{
     public boolean eat(IEdible food){
         double weight_gained = diet.eat(this,food);
         if(weight_gained != 0){
-            MessageUtility.logBooleanFunction(this.getName(), "eat", weight, true);
-
+            MessageUtility.logBooleanFunction(this.getName(), "eat", food, true);
             this.setWeight(this.getWeight()+weight_gained);
             this.makeSound();
             return true;
         }
-        MessageUtility.logBooleanFunction(this.getName(), "eat", weight, false);
+        MessageUtility.logBooleanFunction(this.getName(), "eat", food, false);
         return false;
     }
 
@@ -156,7 +155,7 @@ public abstract class Animal extends Mobile implements IEdible{
      */
     @Override
     public String toString(){
-        return this.getName() + ", total distance: " + this.getTotalDistance() + ", weight: " + this.getWeight()+ "," +this.getClass().getSimpleName();
+        return "[" +this.getClass().getSimpleName() + "]" +this.name;
     }
 
     /**
@@ -169,10 +168,9 @@ public abstract class Animal extends Mobile implements IEdible{
     @Override
     public double move(Point other){
         double distance = super.move(other) ;
-        this.setWeight(this.getWeight()-(distance*this.getWeight()*0.00025));
+        double w = this.getWeight();
+        this.setWeight(w-w*distance*0.00025);
         return distance;
     }
-
-
 
 }

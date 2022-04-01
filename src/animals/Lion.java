@@ -36,8 +36,15 @@ public class Lion extends Roaring_animals {
      * @return true.
      */
     public boolean addScarCount(){
-        scarCount += 1;
-        return true;
+        Random rand = new Random();
+        int rand_int = rand.nextInt(2); //generating either 0/1
+        if(rand_int == 1) {
+            scarCount += 1;
+            MessageUtility.logSetter(this.getName(), "addScarCount", 1, true);
+            return true;
+        }
+        MessageUtility.logSetter(this.getName(), "addScarCount", 0, false);
+        return false;
     }
 
     /**
@@ -49,12 +56,8 @@ public class Lion extends Roaring_animals {
     @Override
     public boolean eat(IEdible food){
             if(super.eat(food)){
-            Random rand = new Random();
-            int rand_int =  rand.nextInt(2); //generating either 0/1
-            if(rand_int == 1)
-                addScarCount(); // raising scarCount by
-            return true;
-
+                addScarCount();
+                return true;
              }
         return false;
     }

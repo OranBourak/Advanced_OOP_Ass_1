@@ -12,5 +12,6 @@ public interface IEdible {
      * @return returns food type of the object.
      */
     EFoodType getFoodType();
+
 }
 
