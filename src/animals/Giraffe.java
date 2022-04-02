@@ -22,11 +22,12 @@ public class Giraffe extends Chewing_animals {
      */
     public Giraffe(String name,Point location,double length){
         super(name,location);
+        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
         this.setWeight(defaultWeight);
         if(!this.setNeckLength(length))
             this.setNeckLength(defaultLength);
         this.setDiet(new Herbivore());
-        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
+
     }
 
     /**

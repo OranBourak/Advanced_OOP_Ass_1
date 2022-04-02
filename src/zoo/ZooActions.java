@@ -5,6 +5,8 @@ import animals.*;
 import plants.Cabbage;
 import plants.Plant;
 import utilities.*;
+
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -30,6 +32,17 @@ public class ZooActions {
         //"Simba is in (X,Y), enter X and Y coordinates to move to"
         for(Animal animal : animals){ // moving
             ZooActions.move(animal,new Point());
+        }
+
+        for(int i =0; i<animals.length/2;i++){
+            Random random = new Random();
+            int randomAnimalIndex = random.nextInt(0,animals.length) ;
+            int randomAnimalIndex2 = random.nextInt(0,animals.length);
+
+            while(randomAnimalIndex == randomAnimalIndex2)
+                randomAnimalIndex2 = random.nextInt(0,animals.length);
+            ZooActions.eat(animals[randomAnimalIndex],animals[randomAnimalIndex2]);
+
         }
 
 

@@ -27,11 +27,12 @@ public class Bear extends Roaring_animals {
      */
     public Bear(String name,Point location, String furColor){
         super(name,location);
+        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
         this.setWeight(defaultWeight);
         this.setDiet(new Omnivore()); // meat eater
         if(!setFurColor(furColor))
             setFurColor(defaultFurColor);
-        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
+
 
     }
 

@@ -32,8 +32,8 @@ public abstract class Animal extends Mobile implements IEdible{
      */
     public Animal(String name,Point location){
         super(location); // base class ctor
+        MessageUtility.logConstractor("Animal",name);
         this.setName(name);
-        MessageUtility.logConstractor("Animal",this.getName());
     }
 
 
@@ -116,7 +116,7 @@ public abstract class Animal extends Mobile implements IEdible{
      * @return true.
      */
     public boolean setDiet(IDiet diet){
-        MessageUtility.logSetter(this.getName(), "setDiet", diet.getClass().getSimpleName(),true);
+        MessageUtility.logSetter(this.getName(), "setDiet", "["+diet.getClass().getSimpleName()+"]",true);
         this.diet = diet;
         return true;
     }

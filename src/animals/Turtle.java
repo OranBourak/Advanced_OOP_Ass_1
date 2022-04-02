@@ -12,6 +12,7 @@ import static utilities.MessageUtility.logSetter;
 public class Turtle extends Chewing_animals {
     private int Age;
     private final static int defaultAge = 1;
+    private final static int defaultWeight = 1;
     private final static int maxAge = 500;
 
     /**
@@ -22,10 +23,12 @@ public class Turtle extends Chewing_animals {
      */
     public Turtle(String name, Point location, int Age){
         super(name,location);
+        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
+        this.setWeight(defaultWeight);
         if(!this.setAge(Age))
             setAge(defaultAge);
         this.setDiet(new Herbivore());
-        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
+
 
     }
 

@@ -23,5 +23,6 @@ public interface IDiet {
      * @return weight of animal given.
      */
     double eat(Animal animal, IEdible food);
+
 }
 

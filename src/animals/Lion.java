@@ -17,9 +17,10 @@ public class Lion extends Roaring_animals {
      */
     public Lion(String name,Point location){
         super(name,location);
+        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
         super.setWeight(default_weight);
         this.setDiet(new Carnivore()); // meat eater
-        MessageUtility.logConstractor(this.getClass().getSimpleName(),this.getName());
+
     }
 
     /**
