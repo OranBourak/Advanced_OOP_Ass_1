@@ -6,6 +6,8 @@ import plants.Cabbage;
 import plants.Plant;
 import utilities.*;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,30 +22,30 @@ public class ZooActions {
      *
      * @param args
      */
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("How many animals would you like to create ? ");
-        int num_of_Animals = sc.nextInt(); // taking size of animal array.
-        while (num_of_Animals < 3) { // Array size bigger than 3.
-            System.out.println("Invalid choice. Must be higher than3. \nHow many animals would you like to create ? ");
-            num_of_Animals = sc.nextInt(); // taking size of animal array.
-        }
-        Animal[] animals = animalBuilder(num_of_Animals); // creating array with the specified size.
-        //"Simba is in (X,Y), enter X and Y coordinates to move to"
-        for(Animal animal : animals){ // moving
-            ZooActions.move(animal,new Point());
-        }
-
-        for(int i =0; i<animals.length/2;i++){
-            Random random = new Random();
-            int randomAnimalIndex = random.nextInt(0,animals.length) ;
-            int randomAnimalIndex2 = random.nextInt(0,animals.length);
-
-            while(randomAnimalIndex == randomAnimalIndex2)
-                randomAnimalIndex2 = random.nextInt(0,animals.length);
-            ZooActions.eat(animals[randomAnimalIndex],animals[randomAnimalIndex2]);
-
-        }
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("How many animals would you like to create ? ");
+//        int num_of_Animals = sc.nextInt(); // taking size of animal array.
+//        while (num_of_Animals < 3) { // Array size bigger than 3.
+//            System.out.println("Invalid choice. Must be higher than3. \nHow many animals would you like to create ? ");
+//            num_of_Animals = sc.nextInt(); // taking size of animal array.
+//        }
+//        Animal[] animals = animalBuilder(num_of_Animals); // creating array with the specified size.
+//        //"Simba is in (X,Y), enter X and Y coordinates to move to"
+//        for(Animal animal : animals){ // moving
+//            ZooActions.move(animal,new Point());
+//        }
+//
+//        for(int i =0; i<animals.length/2;i++){
+//            Random random = new Random();
+//            int randomAnimalIndex = random.nextInt(0,animals.length) ;
+//            int randomAnimalIndex2 = random.nextInt(0,animals.length);
+//
+//            while(randomAnimalIndex == randomAnimalIndex2)
+//                randomAnimalIndex2 = random.nextInt(0,animals.length);
+//            ZooActions.eat(animals[randomAnimalIndex],animals[randomAnimalIndex2]);
+//
+//        }
 
 
 //        Plant p = new Cabbage();
@@ -59,9 +61,28 @@ public class ZooActions {
 //        System.out.println("\nFeeding 5\n");
 //        ZooActions.eat(animals[1],p);
 
-
-
+//        /*Create Animal using reflection*/
+//        Scanner sc = new Scanner(System.in);
+//        Object zoo[] = new Animal[3];
+//        Class c;
+//        ClassLoader cl = ClassLoader.getSystemClassLoader(); //loading project classes
+//        for (int i = 0; i < zoo.length; i++) {
+//            System.out.println("What animal do you want?");
+//            String type = sc.next();
+//            System.out.println("how would you like to call it?");
+//            String name = sc.next();
+//            c = cl.loadClass("animals."+type); // loading class with full path including package
+//            Constructor con = c.getConstructor(String.class);// getting ctor with string parameter
+//
+//            zoo[i] = (Animal) con.newInstance(name);// converting object instance to Animal instance and pointing with object reference
+//
+//            System.out.println(zoo[i]);
+//
+//
+//        }
     }
+
+
 
     /**
      * eat - function receives any type of animal, checks which
