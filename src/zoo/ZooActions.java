@@ -18,48 +18,42 @@ import java.util.Scanner;
  */
 public class ZooActions {
     /**
-     * main - 1. which animal created, check poin
+     * main - takes input from user of size of animal array. uses animalBuilder method to build an array of animals
+     * uses move method to move with all animals, finally uses eat method in a for loop, picks 2 animals randomly,
+     * and lets one eat another if legal.
      *
      * @param args
      */
-    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("How many animals would you like to create ? ");
-//        int num_of_Animals = sc.nextInt(); // taking size of animal array.
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("How many animals would you like to create ? ");
+        int num_of_Animals = sc.nextInt(); // taking size of animal array.
 //        while (num_of_Animals < 3) { // Array size bigger than 3.
 //            System.out.println("Invalid choice. Must be higher than3. \nHow many animals would you like to create ? ");
 //            num_of_Animals = sc.nextInt(); // taking size of animal array.
 //        }
-//        Animal[] animals = animalBuilder(num_of_Animals); // creating array with the specified size.
-//        //"Simba is in (X,Y), enter X and Y coordinates to move to"
-//        for(Animal animal : animals){ // moving
-//            ZooActions.move(animal,new Point());
-//        }
-//
-//        for(int i =0; i<animals.length/2;i++){
-//            Random random = new Random();
-//            int randomAnimalIndex = random.nextInt(0,animals.length) ;
-//            int randomAnimalIndex2 = random.nextInt(0,animals.length);
-//
-//            while(randomAnimalIndex == randomAnimalIndex2)
-//                randomAnimalIndex2 = random.nextInt(0,animals.length);
-//            ZooActions.eat(animals[randomAnimalIndex],animals[randomAnimalIndex2]);
-//
-//        }
+        System.out.println("        ********Building********");
+        Animal[] animals = animalBuilder(num_of_Animals); // creating array with the specified size.
+        //"Simba is in (X,Y), enter X and Y coordinates to move to"
+        System.out.println("        ********Moving********");
+        for(Animal animal : animals){ // moving
+            ZooActions.move(animal,new Point());
+        }
+        System.out.println("        ********Feeding********");
+        for(int i =0; i<animals.length/2;i++){
+            Random random = new Random();
+            int randomAnimalIndex = random.nextInt(0,animals.length) ;
+            int randomAnimalIndex2 = random.nextInt(0,animals.length);
+
+            while(randomAnimalIndex == randomAnimalIndex2)
+                randomAnimalIndex2 = random.nextInt(0,animals.length);
+            ZooActions.eat(animals[randomAnimalIndex],animals[randomAnimalIndex2]);
 
 
-//        Plant p = new Cabbage();
-//        sc.close(); // closing scanner.
-//        System.out.println("\nFeeding 1\n");
-//        ZooActions.eat(animals[0],animals[1]);
-//        System.out.println("\nFeeding 2\n");
-//        ZooActions.eat(animals[1],animals[0]);
-//        System.out.println("\nFeeding 3\n");
-//        ZooActions.eat(animals[2],p);
-//        System.out.println("\nFeeding 4\n");
-//        ZooActions.eat(animals[1],p);
-//        System.out.println("\nFeeding 5\n");
-//        ZooActions.eat(animals[1],p);
+        }
+        Integer z = 15;
+        System.out.println(z);
+
 
 //        /*Create Animal using reflection*/
 //        Scanner sc = new Scanner(System.in);
@@ -101,11 +95,10 @@ public class ZooActions {
     }
 
     /**
-     * move - recieves any type of animal, checks which animal it is
+     * move - recieves any type of object, checks if it's an animal, then
      * uses checkBoundries to check if the point is in boundries,
      * if so calcs the distance between given animal and point and updates
      * current location of animal
-     *
      * @param animal animal checked
      * @param point  point to move to
      * @return returns true if movement was possible, false otherwise.
@@ -118,8 +111,13 @@ public class ZooActions {
             int y = sc.nextInt();
             point.setX(x);
             point.setY(y);
+
             boolean isSuccess = false;
-            if(((Animal) animal).move(point) != 0)
+            if(!Point.checkBoundaries(point)) {
+                MessageUtility.logBooleanFunction(((Animal) animal).getName(), "move", point, isSuccess);
+                return isSuccess; // Can not move to received point.
+            }
+            if(((Animal) animal).move(point) >= 0)
                 isSuccess = true;
             MessageUtility.logBooleanFunction(((Animal) animal).getName(), "move", point,isSuccess );
             return isSuccess; // Can not move to received point.
@@ -128,7 +126,14 @@ public class ZooActions {
         return false; // not an animal
     }
 
-
+    /**
+     * animalBuilder - takes an input of length, creates an array of animals interactively, takes different inputs for different animals
+     * let's the user choose if he wants to create animals with default values or pick values to be initiated with ( if they're valid).
+     *
+     * uses checkBoundaries to check if the animal can be initiated in desired place,
+     * @param length length of desired animal array
+     * @return animal array with size of length.
+     */
     private static Animal[] animalBuilder(int length) {
         Animal[] animal = new Animal[length];
         Scanner sc = new Scanner(System.in);
@@ -156,50 +161,59 @@ public class ZooActions {
                     if (Point.checkBoundaries(p)) {
                         String color = "GRAY"; // getting color
                         System.out.println("Do you want to choose fur color ? [0 for NO 1 for YES]\n");
-                        if (sc.nextInt() != 0) {
+                        if (sc.nextInt() == 1) {
                             System.out.println(" options : 1. Black, 2. White, 3. Gray\n");
                             color = sc.next(); // getting color
                         }
                         animal[i] = new Bear(name, p, color);
-                    } else
+                    } else{
+                        System.out.println("Setting Bear with default color and point");
                         animal[i] = new Bear(name);
+                    }
+
                     break;
                 case 3:
                     if (Point.checkBoundaries(p)) {
                         double neck_length = 1.5;
                         System.out.println("Do you want to choose neck length? [0 for NO 1 for YES]\n");
-                        if (sc.nextInt() != 0) {
+                        if (sc.nextInt() == 1) {
                             System.out.println("Length is from 1 meter to 2.5 meters. Enter length in meters :\n");
                             neck_length = sc.nextDouble();
                         }
                         animal[i] = new Giraffe(name, p, neck_length);
-                    } else
+                    } else {
+                        System.out.println("Setting Giraffe with default neck length and point");
                         animal[i] = new Giraffe(name);
+                    }
                     break;
                 case 4:
                     if (Point.checkBoundaries(p)) {
                         int age = 1;
                         System.out.println("Do you want to choose age for the Turtle? [0 for NO 1 for YES]\n");
-                        if (sc.nextInt() != 0) {
+                        if (sc.nextInt() == 1) {
                             System.out.println("What age ? [1 to 500]\n");
                             age = sc.nextInt();
                         }
                         animal[i] = new Turtle(name, p, age);
 
-                    } else
+                    } else {
+                        System.out.println("Setting Turtle with default age and point");
                         animal[i] = new Turtle(name);
+                    }
                     break;
                 case 5:
                     if (Point.checkBoundaries(p)) {
                         double trunk_length = 1;
                         System.out.println("Do you want to choose trunk length of the elephant ?[ 0 for NO 1 for YES]\n");
-                        if (sc.nextInt() != 0) {
+                        if (sc.nextInt() == 1) {
                             System.out.println("What length? [0.5 to 3 meters]\n");
                             trunk_length = sc.nextDouble();
                         }
                         animal[i] = new Elephant(name, p, trunk_length);
-                    } else
+                    } else {
+                        System.out.println("Setting Elephant with default trunk length and point");
                         animal[i] = new Elephant(name);
+                    }
                     break;
                 default:
                     System.out.println("You have entered an invalid choice, please try again.\n");

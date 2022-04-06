@@ -11,7 +11,4 @@ public enum EFoodType {
     NOTFOOD, // lions
     VEGETABLE; //All vegetables.
 
-//    public boolean equals(EFoodType other){
-//        return this == other;
-//    } Ask about it
 }

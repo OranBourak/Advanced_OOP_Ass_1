@@ -14,7 +14,8 @@ import food.IEdible;
 public class Omnivore implements IDiet {
 
 
-    // Delegators
+
+    //Delegators
     private final IDiet herb_Eater = new Herbivore(); // herb eater methods
     private final IDiet meat_Eater = new Carnivore(); // meat eater methods
 
