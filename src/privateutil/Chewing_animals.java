@@ -7,6 +7,12 @@ import mobility.Point;
  * @author : Oran Bourak, Tomer Burman
  */
 public abstract class Chewing_animals extends Animal{
+
+    /**
+     * ctor that calls Animal ctor
+     * @param name - name of the Animal
+     * @param location - location of the animal
+     */
     public Chewing_animals(String name, Point location){
         super(name,location);
     }

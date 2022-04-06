@@ -10,7 +10,7 @@ import mobility.Point;
  */
 public abstract class Roaring_animals extends Animal {
     /**
-     * ctor, initiates base first.
+     * ctor, calls Animal ctor.
      * @param name
      * @param location
      */

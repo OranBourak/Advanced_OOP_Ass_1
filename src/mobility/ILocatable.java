@@ -1,7 +1,9 @@
 package mobility;
 
-/**
- * Ilocateable - interface that represents functionality of objects space.
+/**Ilocateable - interface that represents functionality of objects space.
+ * EFoodType - represents types of existing foods.
+ * @version: 1
+ * @author : Oran Bourak,Tomer Burman.
  */
 public interface ILocatable {
     /**

@@ -37,7 +37,7 @@ public class Point {
 
     /**
      * setX - recieves int param and assigns it to X coordinate
-     * @param x
+     * @param x - x coordinate to set
      * @return boolean
      */
     public boolean setX(int x) {
@@ -47,7 +47,7 @@ public class Point {
 
     /**
      * setY - receives int param and assigns it to Y coordinate.
-     * @param y
+     * @param y - y coordinate to set
      * @return boolean
      */
     public boolean setY(int y){
@@ -56,10 +56,9 @@ public class Point {
     }
 
     /**
-     * checkBoundries - checks if the coordinates are valid
-     * @param x x coordinate
-     * @param y y coordinate
-     * @return true if the point is in range, false otherwise.
+     * checkBoundaries - checks if a point is valid. (Between 0-800 on X axis and 0-600 on Y axis included.
+     * @param pointToCheck - point that is checked.
+     * @return true if valid false otherwise.
      */
     public static boolean checkBoundaries(Point pointToCheck) {
         return (pointToCheck.getX() >= min_x && pointToCheck.getX() <= max_x && pointToCheck.getY() >= min_y && pointToCheck.getY() <= max_y);
@@ -78,6 +77,11 @@ public class Point {
      */
     public int getY(){return this.y;}
 
+    /**
+     *
+     * @return String e.g - (5,6)
+     */
+    @Override
     public String toString(){
         return "("+ this.getX() + "," + this.getY() + ")";
     }
