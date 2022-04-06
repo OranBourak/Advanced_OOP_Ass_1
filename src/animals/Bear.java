@@ -1,21 +1,23 @@
-package animals;
+/**
+ * Bear - class that represent Bear obj.
+ * Extends Roaring_animals
+ * @version : 1
+ * @author : Tomer Burman, Oran Bourak
+ */
 
-import diet.Carnivore;
+package animals;
 import diet.Omnivore;
 import mobility.Point;
 import privateutil.Roaring_animals;
 import utilities.MessageUtility;
-
-import java.util.Arrays;
-
 import static utilities.MessageUtility.logGetter;
 import static utilities.MessageUtility.logSetter;
 
-public class Bear extends Roaring_animals {
 
+
+public class Bear extends Roaring_animals {
     private final static double defaultWeight = 308.2;
     private final static String defaultFurColor = "GRAY";
-
     private String furColor;
     private final String[] colors_array = {"BLACK","WHITE","GRAY"}; // color choices.
 
@@ -79,10 +81,16 @@ public class Bear extends Roaring_animals {
         return this.furColor;
     }
 
+    @Override
     public String toString(){
         return super.toString() ;
     }
 
+    /**
+     * Roar methode
+     * Using after the animal eats.
+     * uses messageUtility.
+     */
     @Override
     public void roar() {
         MessageUtility.logSound(this.getName(),"Stands on its hind legs, roars and scratches its belly");

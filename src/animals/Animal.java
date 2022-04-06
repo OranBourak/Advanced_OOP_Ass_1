@@ -1,3 +1,10 @@
+/**
+ * Animal - abstract class that defines general characteristics for animals.
+ * Extends Mobile
+ * Implements IEdible
+ * @version : 1
+ * @author : Tomer Burman, Oran Bourak
+ */
 package animals;
 import diet.Carnivore;
 import diet.IDiet;
@@ -6,13 +13,7 @@ import food.IEdible;
 import mobility.*;
 import utilities.MessageUtility;
 
-/**
- * Animal - abstarct class that defines general characteristics for animals.
- * Extends Mobile
- * Implements IEdible
- * @version : 1
- * @author : Tomer Burman, Oran Bourak
- */
+
 public abstract class Animal extends Mobile implements IEdible{
     /**
      * name - name of the animal
@@ -27,7 +28,7 @@ public abstract class Animal extends Mobile implements IEdible{
 
     /**
      * Animal constructor
-     * @param name
+     * @param name Animal name
      * @param location coordinate in (x,y) grid.
      */
     public Animal(String name,Point location){
@@ -40,7 +41,7 @@ public abstract class Animal extends Mobile implements IEdible{
 
     /**
      * setting weight of the animal.
-     * @param weight
+     * @param weight - weight to set.
      * @return true if weight is higher than zero
      */
     protected boolean setWeight (double weight){
@@ -100,9 +101,9 @@ public abstract class Animal extends Mobile implements IEdible{
 
 
     /**
-     *
+     * Return animal type as food to eat.
      * @return EFoodType
-      */
+     */
     @Override
     public EFoodType getFoodType(){
         MessageUtility.logGetter(this.getName(), "getFoodType", EFoodType.MEAT);
@@ -112,7 +113,7 @@ public abstract class Animal extends Mobile implements IEdible{
 
     /**
      * setDiet - setting Diet to a certain animal.
-     * @param diet
+     * @param diet - animal diet type , Carnivore/Herbivore/Omnivore
      * @return true.
      */
     public boolean setDiet(IDiet diet){
@@ -133,7 +134,7 @@ public abstract class Animal extends Mobile implements IEdible{
 
     /**
      * eat -
-     * @param food
+     * @param food - food to feed the animal.
      * @return true if the animal ate, false otherwise
      */
     public boolean eat(IEdible food){
@@ -163,7 +164,7 @@ public abstract class Animal extends Mobile implements IEdible{
      * use Mobile move method , update the animal weight with the following formula:
      * Weight- (distance*weight*0.00025).
      * @param other received Point to travel to
-     * @return
+     * @return distance that the animal traveled from her last location to new location(POINT)
      */
     @Override
     public double move(Point other){

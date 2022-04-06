@@ -1,11 +1,16 @@
+/**
+ * Elephant - class that represent Elephant obj.
+ * Extends Chewing_animals
+ * @version : 1
+ * @author : Tomer Burman, Oran Bourak
+ */
 package animals;
-
 import diet.Herbivore;
 import mobility.Point;
 import privateutil.Chewing_animals;
 import utilities.MessageUtility;
-
 import static utilities.MessageUtility.logSetter;
+
 
 public class Elephant extends Chewing_animals {
     private double trunkLength; // represent the elephant trunk length.
@@ -62,12 +67,29 @@ public class Elephant extends Chewing_animals {
         return false;
     }
 
+    @Override
     public String toString(){
         return super.toString();
     }
 
+    /**
+     * Chew method
+     * Using after animal eats
+     * Uses messageUtility
+     */
     @Override
     public void chew() {
        MessageUtility.logSound(this.getName(),"Trumpets with joy while flapping its ears, then chews");
     }
+
+    /**
+     * Get trunk length
+     * @return animal trunk length
+     */
+    public double getTrunkLength() {
+        MessageUtility.logGetter(this.getName(),"getTrunkLength",trunkLength);
+        return trunkLength;
+    }
+
+
 }

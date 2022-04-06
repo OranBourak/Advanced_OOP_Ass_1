@@ -1,13 +1,19 @@
+/**
+ * Giraffe - class that represent Giraffe obj.
+ * Extends Chewing_animals
+ * Implements IEdible
+ * @version : 1
+ * @author : Tomer Burman, Oran Bourak
+ */
+
 package animals;
-
-
 import diet.Herbivore;
 import mobility.Point;
 import privateutil.Chewing_animals;
 import utilities.MessageUtility;
-
 import static utilities.MessageUtility.logConstractor;
 import static utilities.MessageUtility.logSetter;
+
 
 public class Turtle extends Chewing_animals {
     private int Age;
@@ -67,16 +73,22 @@ public class Turtle extends Chewing_animals {
 
     /**
      * Get Age method
-     * @return
+     * @return animal age
      */
     public int getAge() {
+        MessageUtility.logGetter(this.getName(),"getAge",Age);
         return Age;
     }
 
+    @Override
     public String toString(){
         return super.toString();
     }
 
+    /**
+     * Turtle chew .
+     * uses messageUtility.
+     */
     @Override
     public void chew() {
         MessageUtility.logSound(this.getName(),"Retracts its head in then eats quietly");

@@ -1,3 +1,9 @@
+/**
+ * Giraffe - class that represent Giraffe obj.
+ * Extends Chewing_animals
+ * @version : 1
+ * @author : Tomer Burman, Oran Bourak
+ */
 package animals;
 import diet.Herbivore;
 import mobility.*;
@@ -16,9 +22,8 @@ public class Giraffe extends Chewing_animals {
     /**
      * Giraffe ctor - initiates base class and sets weight to default(450), if neckLength
      * is
-     *
-     * @param name
-     * @param location
+     * @param name animal name
+     * @param location animal starting location
      */
     public Giraffe(String name,Point location,double length){
         super(name,location);
@@ -32,7 +37,7 @@ public class Giraffe extends Chewing_animals {
 
     /**
      * Giraffe ctor - uses ctor that recieves name and point with default point of (50,0).
-     * @param name
+     * @param name animal name
      */
     public Giraffe(String name,Point location){
         this(name,location,defaultLength);
@@ -41,16 +46,12 @@ public class Giraffe extends Chewing_animals {
 
     /**
      * ctor that receives only name
-     * @param name
+     * @param name animal name
      */
     public Giraffe(String name) {
         this(name, new Point(50, 0), defaultLength);
     }
 
-    /**
-     * setDiet - setting diet to herbivore.
-     * @return boolean, true if success
-     */
 
     /**
      * setNeckLength - sets neckLength to length received if it's in bounds. (1 to 2.5 meters).
@@ -68,7 +69,7 @@ public class Giraffe extends Chewing_animals {
     }
 
     /**
-     *
+     * Get Neck Length Method
      * @return neckLength of giraffe.
      */
     public double getNeckLength(){
@@ -78,14 +79,16 @@ public class Giraffe extends Chewing_animals {
 
     /**
      * uses Animal toString.
-     * @return
+     * @return Animal representation
      */
     public String toString(){
         return super.toString();
     }
 
+
     /**
      * Giraffe chew .
+     * uses messageUtility.
      */
     public void chew() {
         MessageUtility.logSound(this.getName(), "Bleats and Stomps its legs, then chews");

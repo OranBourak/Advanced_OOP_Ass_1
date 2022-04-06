@@ -1,3 +1,9 @@
+/**
+ * Lion - class that represent Lion obj.
+ * Extends Roaring_animals
+ * @version : 1
+ * @author : Tomer Burman, Oran Bourak
+ */
 package animals;
 import diet.Carnivore;
 import food.*;
@@ -8,12 +14,13 @@ import utilities.MessageUtility;
 
 public class Lion extends Roaring_animals {
     private final double default_weight = 408.2;
-    private int scarCount ;// how many scars lion has
+    private int scarCount ;// how many scar's lion has
+
 
     /**
      * constructor that receives name and starting location.
-     * @param name
-     * @param location
+     * @param name animal name
+     * @param location animal starting location
      */
     public Lion(String name,Point location){
         super(name,location);
@@ -25,7 +32,7 @@ public class Lion extends Roaring_animals {
 
     /**
      * constructor that recieves only name, setting to default location of (20,0)
-     * @param name
+     * @param name animal name
      */
     public Lion(String name){
 
@@ -49,9 +56,17 @@ public class Lion extends Roaring_animals {
     }
 
     /**
+     * Get Scar's method.
+     * @return how many scar's the lion has.
+     */
+    public int getScarsCount(){
+        MessageUtility.logGetter(this.getName(),"getScarsCount",scarCount);
+        return scarCount;}
+
+    /**
      * eat - uses Animal class eat, if food is edible, there's a 50% chance to
      * get a scar.
-     * @param food
+     * @param food food to feed the animal.
      * @return returns true if edible, false otherwise.
      */
     @Override
@@ -76,7 +91,7 @@ public class Lion extends Roaring_animals {
 
     /**
      * toString - uses Animal class toString.
-     * @return
+     * @return Animal representation.
      */
 
     public String toString(){
@@ -91,5 +106,6 @@ public class Lion extends Roaring_animals {
         MessageUtility.logGetter(this.getClass().getSimpleName(), "getFoodType", EFoodType.NOTFOOD);
         return EFoodType.NOTFOOD;
     }
+
 
 }
