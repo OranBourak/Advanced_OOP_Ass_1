@@ -37,7 +37,7 @@ public class Point {
 
     /**
      * setX - recieves int param and assigns it to X coordinate
-     * @param x
+     * @param x - x coordinate to set
      * @return boolean
      */
     public boolean setX(int x) {
@@ -47,7 +47,7 @@ public class Point {
 
     /**
      * setY - receives int param and assigns it to Y coordinate.
-     * @param y
+     * @param y - y coordinate to set
      * @return boolean
      */
     public boolean setY(int y){
