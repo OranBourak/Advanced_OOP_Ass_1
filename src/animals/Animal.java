@@ -87,7 +87,7 @@ public abstract class Animal extends Mobile implements IEdible{
      * @return String type - name.
      */
     public String getName(){
-//        MessageUtility.logGetter(this.name, "getName", this.name);
+        MessageUtility.logGetter(this.name, "getName", this.name);
         return this.name;
     }
 
