@@ -28,10 +28,10 @@ public class ZooActions {
         Scanner sc = new Scanner(System.in);
         System.out.println("How many animals would you like to create ? ");
         int num_of_Animals = sc.nextInt(); // taking size of animal array.
-//        while (num_of_Animals < 3) { // Array size bigger than 3.
-//            System.out.println("Invalid choice. Must be higher than3. \nHow many animals would you like to create ? ");
-//            num_of_Animals = sc.nextInt(); // taking size of animal array.
-//        }
+        while (num_of_Animals < 3) { // Array size bigger than 3.
+            System.out.println("Invalid choice. Must be higher than3. \nHow many animals would you like to create ? ");
+            num_of_Animals = sc.nextInt(); // taking size of animal array.
+        }
         System.out.println("        ********Building********");
         Animal[] animals = animalBuilder(num_of_Animals); // creating array with the specified size.
         //"Simba is in (X,Y), enter X and Y coordinates to move to"
@@ -51,8 +51,6 @@ public class ZooActions {
 
 
         }
-        Integer z = 15;
-        System.out.println(z);
 
 
 //        /*Create Animal using reflection*/
