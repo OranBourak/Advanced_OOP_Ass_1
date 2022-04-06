@@ -74,7 +74,7 @@ public abstract class Mobile implements ILocatable{
     }
 
     /**
-     *
+     *getTotalDistance
      * @return total distance traveled.
      */
 
@@ -91,7 +91,7 @@ public abstract class Mobile implements ILocatable{
     }
 
     /**
-     * checking if Point in boundaries if so
+     * move - checks if Point in boundaries if so
      * Moves from one place to another
      * @param other recieved Point to travel to
      * @return distance traveled.
