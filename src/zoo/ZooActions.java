@@ -10,12 +10,12 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
 import java.util.Scanner;
-
-
-/**
- * ZooActions - Class that represents what are the actions
+/**ZooActions - Class that represents what are the actions
  * the animals/pants in the zoo can take.
+ * @version :1
+ * @author : Oran Bourak, Tomer Burman
  */
+
 public class ZooActions {
     /**
      * main - takes input from user of size of animal array. uses animalBuilder method to build an array of animals
